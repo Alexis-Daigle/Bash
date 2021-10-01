@@ -4,8 +4,8 @@
 
 ### Replace the data within the quotes with your IBM information. 
 
+api="API"
 url="URL"
-api="APIKEY"
 
 ### Uncomment one of the following to select wanted voice.
 
