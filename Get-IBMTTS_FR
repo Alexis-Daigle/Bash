@@ -1,0 +1,30 @@
+#IBM Watson TTS Service Request Curl Script For French Languages.
+#Created by Alexis Daigle.
+# see https://cloud.ibm.com/docs/text-to-speech?topic=text-to-speech-gettingStarted For more options
+
+### Replace the data and brakets with your IBM information. 
+
+url={URL}
+api={APIKEY}
+
+####Uncomment one of the following to select wanted voice.
+
+#voice=fr-FR_ReneeV3Voice
+voice=fr-FR_NicolasV3Voice
+#voice=fr-FR_ReneeVoice
+#voice=fr-CA_LouiseV3Voice
+
+###Uncomment one set or create new texts and filename here.
+
+#text="Bonjour vous avez rejoin le departement d'informatique"
+#filename=Bonjour.wav
+#text="Pour nous laissez un message faite le 1, Merci"
+#filename=Message.wav
+
+###This is part of the request being sent to the TTS service.
+
+curl -X POST -u "apikey:$api" \
+--header "Content-Type: application/json" --header "Accept: audio/wav" \
+--data "{\"text\":\"$text\"}" \
+--output $filename \
+"$url/v1/synthesize?voice=$voice"
